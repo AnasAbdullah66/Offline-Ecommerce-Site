@@ -1,0 +1,164 @@
+Pic : Samsung-Galaxy-A03-Core-image.jpg
+Brand : SAMSUNG
+Model: Samsung-Galaxy-A03-Core-image
+Price: 10,999
+
+Pic : Vivo-V25-5G.jpg
+Brand : VIVO
+Model: Vivo-V25-5G
+Price: 47,999
+
+Pic : Vivo-V23-5G-image.jpg
+Brand : VIVO
+Model: Vivo-V23-5G-image
+Price: 39,999
+
+Pic : Walton-Orbit-Y50.jpg
+Brand : WALTON
+Model: Walton-Orbit-Y50
+Price: 12,999
+
+Pic : Vivo-Y53s-image.jpg
+Brand : VIVO
+Model: Vivo-Y53s-image
+Price: 20,999
+
+Pic : Apple-iPhone-14-Pro-Max.jpg
+Brand : iPhone 
+Model: Apple-iPhone-14-Pro-Max
+Price: 201,599
+
+Pic : Infinix-Smart-6-Plus.jpg
+Brand : INFINIX
+Model: Infinix-Smart-6-Plus
+Price: 10,999
+
+Pic : OnePlus-Nord-N20-SE.jpg
+Brand : OnePlus-
+Model: OnePlus-Nord-N20-SE 
+Price: 18,990
+
+Pic : Vivo-V21e.jpg
+Brand : VIVO
+Model: Vivo-V21e
+Price: 26,999
+
+Pic : Xiaomi-Redmi-Note-11.jpg
+Brand : Xiaomi-
+Model: Xiaomi-Redmi-Note-11
+Price: 19,599
+
+Pic : Oppo-F21-Pro.jpg
+Brand : Oppo-
+Model: Oppo-F21-Pro.jpg
+Price: 32,900
+
+Pic : Realme-Narzo-50.jpg
+Brand : Realme-
+Model: Realme-Narzo-50
+Price: 19,999
+
+Pic : Samsung-Galaxy-Xcover6-Pro.jpg
+Brand : SAMSUNG
+Model: Samsung Galaxy Z Fold4
+Price: 25,999
+
+Pic : Samsung-Galaxy-F13.jpg
+Brand : SAMSUNG
+Model: Samsung-Galaxy-F13
+Price: 25,999
+
+Pic : Vivo-V25e.jpg
+Brand : VIVO
+Model: Vivo-V25e
+Price: 34,999
+
+Pic : Samsung-Galaxy-F23-5G.jpg
+Brand : SAMSUNG
+Model: Samsung-Galaxy-F23-5G
+Price: 29,999
+
+Pic : Samsung-Galaxy-A23.jpg
+Brand : SAMSUNG
+Model: Samsung-Galaxy-A23
+Price: 31,499
+
+Pic : Vivo-X80-5G.jpg
+Brand : VIVO
+Model: Vivo-X80-5G
+Price: 75,999
+
+Pic : Samsung-Galaxy-A03.jpg
+Brand : SAMSUNG
+Model: Samsung-Galaxy-A03
+Price: 13,999
+
+Pic : Vivo-Y01.jpg
+Brand : VIVO
+Model: Vivo-Y01
+Price: 10,999
+
+Pic : Samsung-Galaxy-S22-Plus-image.jpg
+Brand : SAMSUNG
+Model: Samsung-Galaxy-S22-Plus-image
+Price: 122,999
+
+Pic : 
+Brand : Samsung 
+Model: 
+Price: 
+
+Pic : 
+Brand : Samsung 
+Model: 
+Price: 
+
+Pic : 
+Brand : Samsung 
+Model: 
+Price: 
+
+Pic : 
+Brand : Samsung 
+Model: 
+Price: 
+
+Pic : 
+Brand : Samsung 
+Model: 
+Price: 
+
+Pic : 
+Brand : Samsung 
+Model: 
+Price: 
+
+Pic : 
+Brand : Samsung 
+Model: 
+Price: 
+
+Pic : 
+Brand : Samsung 
+Model: 
+Price: 
+
+Pic : 
+Brand : Samsung 
+Model: 
+Price: 
+
+Pic : 
+Brand : Samsung 
+Model: 
+Price: 
+
+Pic : 
+Brand : Samsung 
+Model: 
+Price: 
+
+Pic : 
+Brand : Samsung 
+Model: 
+Price: 

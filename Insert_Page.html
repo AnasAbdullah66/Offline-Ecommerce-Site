@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AB Shopping</title>
+    <link rel="stylesheet" href="Style/style.css" />
+    <script src="Screept/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="Screept/shop.js"></script>
+    <script type="text/javascript" src="Screept/Store.js"></script>
+    <script type="text/javascript" src="Screept/index.js"></script>
+
+</head>
+<body>
+    <section class="header">
+        <a href="index.html"><img src="Images/logo.jpg" class="logo" /></a>
+        <div class="search">
+            <input type="text" placeholder="Search your item" class="searchbox" id="searchbox" />
+            <button id="btnSearch"><img src="Images/search.png" style="height:34px; width:40px;" /></button>
+        </div>
+        <div>
+            <!--<button class="btnCartTitlebar"><img src="Images/shopping-cart.jpg" style="height:35px; width:35px" /></button>-->
+            <input type="image" src="Images/shopping-cart.jpg" style="height:35px; width:35px" onclick="location.href='cart.html'" />
+        </div>
+        <ul class="navebar">
+            <li><a class="active" href="index.html">Home</a></li>
+            <li><a href="Shop.html">Shop</a></li>
+            <li>
+                <a href="#">Brand</a>
+                <!--<ul>
+                    <li><a href="#">Samsung</a></li>
+                    <li><a href="#">Samsung</a></li>
+                    <li><a href="#">Samsung</a></li>
+                    <li><a href="#">Samsung</a></li>
+                    <li><a href="#">Samsung</a></li>
+                    <li><a href="#">Samsung</a></li>
+                </ul>-->
+            </li>
+
+            <li><a href="About.html">About</a></li>
+            <li><a href="Contact.html">Contact Us</a></li>
+        </ul>
+
+    </section>
+    <!--=============data insert===============-->
+    <section id="insert" class="insert">
+        <div id="insert-filds">
+            <h2>Add New Items</h2>
+            <div>
+                <label class="label">Photo of product : </label>
+                <input type="text" id="productPhoto" style="font-size:18px;"/>
+            </div>
+            <div>
+                <label class="label" id="brandName">Brand :</label>
+                <input type="text" id="brand" style="font-size:18px;" />
+            </div>
+            <div>
+                <label class="label">Model : </label>
+                <input type="text" id="model" style="font-size:18px;"/>
+            </div>
+            <div>
+                <label class="label">Price : </label>
+                <input type="text" id="price" style="font-size:18px;"/>
+            </div>
+
+            <div>
+                <input type="button" id="add" value="Add New" />
+            </div>
+        </div>
+
+
+        <div id="insert-table">
+            <h2>Added Product details</h2>
+            <table id="tbl" cellpadding="5" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Photo of product</th>
+                        <th>Brand</th>
+                        <th>Model</th>
+                        <th>Price</th>
+                        <th>----</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </section>
+
+
+
+    <footer class="footer">
+        <div>
+            <p><h2>Contact</h2></p><br />
+            <p><strong>Phone : </strong>01789456123</p>
+            <p><strong>Web site : </strong>abshopping.com</p>
+            <p><strong>Address : </strong>Panthapath, Dhaka.</p>
+        </div>
+
+        <h1>Thanks to visit</h1>
+    </footer>
+
+    
+</body>
+</html>
+

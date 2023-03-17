@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AB Shopping</title>
+    <link rel="stylesheet" href="Style/style.css" />
+    <script src="Screept/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="Screept/shop.js"></script>
+    <script type="text/javascript" src="Screept/Store.js"></script>
+    <script type="text/javascript" src="Screept/index.js"></script>
+
+</head>
+<body>
+    <section class="header">
+        <a href="index.html"><img src="Images/logo.jpg" class="logo" /></a>
+        <div class="search">
+            <input type="text" placeholder="Search your item" class="searchbox" id="searchbox" />
+            <button id="btnSearch"><img src="Images/search.png" style="height:34px; width:40px;" /></button>
+        </div>
+        <div>
+            <!--<button class="btnCartTitlebar"><img src="Images/shopping-cart.jpg" style="height:35px; width:35px" /></button>-->
+            <input type="image" src="Images/shopping-cart.jpg" style="height:35px; width:35px" onclick="location.href='cart.html'" />
+        </div>
+        <ul class="navebar">
+            <li><a class="active" href="index.html">Home</a></li>
+            <li><a href="Shop.html">Shop</a></li>
+            <li>
+                <a href="#">Brand</a>
+                <!--<ul>
+                    <li><a href="#">Samsung</a></li>
+                    <li><a href="#">Samsung</a></li>
+                    <li><a href="#">Samsung</a></li>
+                    <li><a href="#">Samsung</a></li>
+                    <li><a href="#">Samsung</a></li>
+                    <li><a href="#">Samsung</a></li>
+                </ul>-->
+            </li>
+
+            <li><a href="About.html">About</a></li>
+            <li><a href="Contact.html">Contact Us</a></li>
+        </ul>
+
+    </section>
+    <!--==========Product list==========-->
+    <section class="product">
+        <div style="height: 80px;"></div>
+        <h2>Avaiable Products</h2>
+        <div class="productContainer" id="productContainer">
+        </div>
+    </section>
+    <footer class="footer">
+        <div>
+            <p><h2>Contact</h2></p><br />
+            <p><strong>Phone : </strong>01789456123</p>
+            <p><strong>Web site : </strong>abshopping.com</p>
+            <p><strong>Address : </strong>Panthapath, Dhaka.</p>
+        </div>
+
+        <h1>Thanks to visit</h1>
+    </footer>
+    <script>
+        var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
+
+        window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction;
+        window.IDBCursor = window.IDBCursor || window.webkitIDBCursor;
+        window.IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange;
+
+        var db;
+        var currentEdit = null;
+
+        $(document).ready(function () {
+            var openReq = indexedDB.open("Store", 1);
+            openReq.onupgradeneeded = function (e) {
+                db = e.target.result;
+
+                var store = db.createObjectStore("AB Shoping", { keyPath: "id", autoIncrement: true });
+                console.log(store);
+            }
+
+            openReq.onsuccess = function (e) {
+                db = e.target.result;
+                console.log(db);
+                readAll();
+            }
+        });
+
+        function readAll() {
+            $("#tbl tbody").empty();
+            var tx = db.transaction(["AB Shoping"], "readonly");
+            var req = tx.objectStore("AB Shoping").openCursor();
+            req.onsuccess = function (e) {
+                var cursor = e.target.result;
+                if (!cursor) return;
+                $("#productContainer").append(
+                    `<div class="pro">
+                            <img src="Images/${cursor.value.ProductPhoto}" />
+                            <div class="description">
+                                <span>${cursor.value.Brand}</span>
+                                <h5>${cursor.value.Model}</h5>
+                                <h4>Price: ${cursor.value.Price}/-</h4>
+                            </div>
+                            <button href="#"><img class="cartPic" src="Images/shopping-cart.jpg" /></button>
+                            <button href="#" class="btnView">View Details</button>
+                        </div>`
+                )
+                cursor.continue();
+            }
+            req.onerror = function (err) {
+                console.log(err);
+            }
+        }
+        $("#btnSearch").on('click', function () {
+            var searchText = $("#searchbox").val();
+
+            $("#productContainer").empty();
+            var tx = db.transaction(["AB Shoping"], "readonly");
+            var req = tx.objectStore("AB Shoping").openCursor();
+            req.onsuccess = function (e) {
+                var cursor = e.target.result;
+                if (!cursor) return;
+                if (cursor.value.Model.includes(searchText)) {
+                    $("#productContainer").append(
+                        `<div class="pro">
+                            <img src="Images/${cursor.value.ProductPhoto}" />
+                            <div class="description">
+                                <span>${cursor.value.Brand}</span>
+                                <h5>${cursor.value.Model}</h5>
+                                <h4>Price: ${cursor.value.Price}/-</h4>
+                            </div>
+                            <button href="#"><img class="cartPic" src="Images/shopping-cart.jpg" /></button>
+                            <button href="#" class="btnView">View Details</button>
+                        </div>`
+                    );
+                }
+                cursor.continue();
+            }
+            req.onerror = function (err) {
+                console.log(err);
+            }
+
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AB Shopping</title>
+    <link rel="stylesheet" href="Style/style.css" />
+    <style>
+        .cartBody {
+            width: 700px;
+            height: auto;
+            margin-left: 25%;
+            background-color: #efecec;
+            overflow: hidden;
+            /*position:relative;*/
+            scroll-behavior: auto;
+        }
+
+        #productBrand {
+            margin: 0;
+            padding: 0;
+        }
+
+        .cart22 {
+            display: flex;
+            border: solid 1px black;
+            width: 620px;
+            /*height:150px;*/
+            margin: 20px 35px 0 45px;
+        }
+
+            .cart22 #p2 {
+                float: right;
+                padding: 10px;
+                margin: 5px;
+                /*text-align: center;*/
+            }
+
+            .cart22 #p1 {
+                float: right;
+                padding: 10px;
+                margin: 5px;
+                text-align: center;
+            }
+
+        #cartImage {
+            height: 60px;
+            width: 60px;
+        }
+
+        .checkbox {
+            float: none;
+            margin-right: 10px;
+        }
+
+        #checkout {
+            color: black;
+            background-color: cornflowerblue;
+            padding: 5px;
+            height: 40px;
+            width: 200px;
+            border-radius: 50px;
+            border: none;
+            font-size: 16px;
+            margin: 20px;
+            font-weight: 700;
+        }
+
+        .btncheckout {
+            text-align: center;
+            background-color: #cec9c9;
+            margin-top: 10px;
+        }
+
+        #checkout:hover {
+            background-color: blue;
+            color: white;
+            font-weight: 700;
+        }
+
+        .carttotal {
+            width: inherit;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            /*margin:0 20px 0 50px;*/
+        }
+
+            .carttotal .title {
+                font-weight: 700;
+            }
+
+        .total h3 {
+            color: black;
+        }
+
+        .btn-minus {
+            height: 30px;
+            width: 25px;
+            border-radius: 2px;
+            border: 1px solid #156ca634;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+            margin: 10px 5px 0 5px;
+        }
+
+            .btn-minus:hover {
+                background-color: #2388cb;
+                color: #fff;
+            }
+
+            .btn-minus:active {
+                transform: scale(0.99) translateY(1px);
+            }
+
+        .input-counter {
+            height: 32px;
+            width: 30px;
+            border-radius: 0;
+            border: 0;
+            text-align: center;
+            /*margin: 0px 5px 0 0px;*/
+        }
+
+            .input-counter:focus {
+                outline: none;
+            }
+
+        .btn-plus {
+            height: 30px;
+            width: 25px;
+            border-radius: 2px;
+            border: 1px solid #156ca634;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+            margin: 0px 5px 0 0px;
+        }
+
+            .btn-plus:hover {
+                background-color: #2388cb;
+                color: #fff;
+            }
+
+            .btn-plus:active {
+                transform: scale(0.99) translateY(1px);
+            }
+
+        .item-quantity-price {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+            .item-quantity-price .amount {
+                color: var(--primary-color);
+            }
+
+        #p1 {
+            display: flex;
+            justify-content: space-between;
+            align-content: center;
+            text-align: center;
+        }
+        .item-cancel {
+            position: relative;
+            width: 12%;
+            align-self: stretch;
+        }
+
+        .itemcancel .cancel {
+            position: center;
+            color: red;
+            background-color: #b7b7f3;
+            font-weight:700;
+            height: 30px;
+            width: 55px;
+            border: 1px solid #b7b7f3;
+            border-radius: 4px;
+            transition: all .2s ease;
+            cursor: pointer;
+        }
+
+            .itemcancel .cancel:hover {
+                background-color: #2388cb;
+                color: black;
+            }
+
+            .itemcancel .cancel:active {
+                transform: scale(0.99) translateY(1px);
+                background-color: #fff;
+                color: #000;
+            }
+    </style>
+    <script src="Screept/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="Screept/shop.js"></script>
+    <script type="text/javascript" src="Screept/Store.js"></script>
+    <script type="text/javascript" src="Screept/index.js"></script>
+</head>
+<body>
+    <section class="header">
+        <a href="index.html"><img src="Images/logo.jpg" class="logo" /></a>
+        <div class="search">
+            <input type="text" placeholder="Search your item" class="searchbox" id="searchbox" />
+            <button id="btnSearch"><img src="Images/search.png" style="height:34px; width:40px;" /></button>
+        </div>
+        <div>
+            <!--<button class="btnCartTitlebar"><img src="Images/shopping-cart.jpg" style="height:35px; width:35px" /></button>-->
+            <input type="image" id="cartTitlebar" src="Images/shopping-cart.jpg" style="height:35px; width:35px" onclick="location.href='cart.html'" />
+        </div>
+        <ul class="navebar">
+            <li><a class="active" href="index.html">Home</a></li>
+            <li><a href="Shop.html">Shop</a></li>
+            <li>
+                <a href="#">Brand</a>
+                <!--<ul>
+                    <li><a href="#">Samsung</a></li>
+                    <li><a href="#">Samsung</a></li>
+                    <li><a href="#">Samsung</a></li>
+                    <li><a href="#">Samsung</a></li>
+                    <li><a href="#">Samsung</a></li>
+                    <li><a href="#">Samsung</a></li>
+                </ul>-->
+            </li>
+
+            <li><a href="About.html">About</a></li>
+            <li><a href="Contact.html">Contact Us</a></li>
+        </ul>
+
+    </section>
+    <!--=============cart===============-->
+    <section class="cartBody">
+        <div class="space"></div>
+        <div class="cart22">
+            <div id="p1">
+                <input type="checkbox" class="checkbox" />
+                <img src="Images/Samsung-Galaxy-A03.jpg" id="cartImage" />
+                <div class="item-counter">
+                    <button class="btn-minus">-</button>
+                    <input class="input-counter" value="0" type="text" name="" id="" readonly>
+                    <button class="btn-plus">+</button>
+                </div>
+            </div>
+            <div id="p2">
+                <span id="productBrand">Product Brand</span>
+                <br />
+                <span id="productName">Product Name</span>
+                <br />
+                <span id="productPrice">Product Price</span>
+                <br />
+                <div class="itemcancel">
+                    <button class="cancel">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="cart22">
+            <div id="p1">
+                <input type="checkbox" class="checkbox" />
+                <img src="Images/Samsung-Galaxy-A03.jpg" id="cartImage" />
+                <div class="item-counter">
+                    <button class="btn-minus">-</button>
+                    <input class="input-counter" value="0" type="text" name="" id="" readonly>
+                    <button class="btn-plus">+</button>
+                </div>
+            </div>
+            <div id="p2">
+                <span id="productBrand">Product Brand</span>
+                <br />
+                <span id="productName">Product Name</span>
+                <br />
+                <span id="productPrice">Product Price</span>
+                <br />
+                <div class="itemcancel">
+                    <button class="cancel">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="cart22">
+            <div id="p1">
+                <input type="checkbox" class="checkbox" />
+                <img src="Images/Samsung-Galaxy-A03.jpg" id="cartImage" />
+                <div class="item-counter">
+                    <button class="btn-minus">-</button>
+                    <input class="input-counter" value="0" type="text" name="" id="" readonly>
+                    <button class="btn-plus">+</button>
+                </div>
+            </div>
+            <div id="p2">
+                <span id="productBrand">Product Brand</span>
+                <br />
+                <span id="productName">Product Name</span>
+                <br />
+                <span id="productPrice">Product Price</span>
+                <br />
+                <div class="itemcancel">
+                    <button class="cancel">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="cart22">
+            <div id="p1">
+                <input type="checkbox" class="checkbox" />
+                <img src="Images/Samsung-Galaxy-A03.jpg" id="cartImage" />
+                <div class="item-counter">
+                    <button class="btn-minus">-</button>
+                    <input class="input-counter" value="0" type="text" name="" id="" readonly>
+                    <button class="btn-plus">+</button>
+                </div>
+            </div>
+            <div id="p2">
+                <span id="productBrand">Product Brand</span>
+                <br />
+                <span id="productName">Product Name</span>
+                <br />
+                <span id="productPrice">Product Price</span>
+                <br />
+                <div class="itemcancel">
+                    <button class="cancel">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="carttotal">
+            <span class="title">TOTAL</span>
+            <h3><span class="maxtotal">0.00</span></h3>
+        </div>
+        <div class="btncheckout">
+            <button id="checkout">Proceed to checkout</button>
+        </div>
+
+
+
+    </section>
+    <section>
+
+    </section>
+    <footer class="footer">
+        <div>
+            <p><h2>Contact</h2></p><br />
+            <p><strong>Phone : </strong>01789456123</p>
+            <p><strong>Web site : </strong>abshopping.com</p>
+            <p><strong>Address : </strong>Panthapath, Dhaka.</p>
+        </div>
+
+        <h1>Thanks to visit</h1>
+    </footer>
+
+    <!--<script type="text/javascript">-->
+        function RunDB() {
+
+        }
+        var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
+
+        window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction;
+        window.IDBCursor = window.IDBCursor || window.webkitIDBCursor;
+        window.IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange;
+
+        var db;
+        var currentEdit = null;
+
+        var openReq = indexedDB.open("Store", 1);
+
+        openReq.onsuccess = function (e) {
+            db = e.target.result;
+        }
+
+
+        // ************************************************
+        // Shopping Cart API
+        // ************************************************
+        var shoppingCart = (function () {
+            // =============================
+            // Private methods and propeties
+            // =============================
+            cart = [];
+
+            // Constructor
+            function Item(brand, productname, productprice, image, total) {
+                this.brand = brand;
+                this.productname = productname;
+                this.productprice = productprice;
+                this.imagesrc = image;
+                this.total = total;
+            }
+
+            // Save cart
+            function saveCart() {
+                sessionStorage.setItem('shoppingCart', JSON.stringify(cart));
+            }
+
+            // Load cart
+            function loadCart() {
+                cart = JSON.parse(sessionStorage.getItem('shoppingCart'));
+            }
+            if (sessionStorage.getItem("shoppingCart") != null) {
+                loadCart();
+            }
+
+
+            // =============================
+            // Public methods and propeties
+            // =============================
+            var obj = {};
+
+            // Add to cart
+            obj.addItemToCart = function (brand, productname, productprice, image, total) {
+                for (var item in cart) {
+                    if (cart[item].productname === productname) {
+                        cart[item].total++;
+                        saveCart();
+                        return;
+                    }
+                }
+                var item = new Item(brand, productname, productprice, image, total);
+                cart.push(item);
+                saveCart();
+            }
+            // Set count from item
+            obj.setCountForItem = function (productname, total) {
+                for (var i in cart) {
+                    if (cart[i].productname === productname) {
+                        cart[i].total = total;
+                        break;
+                    }
+                }
+            };
+            // Remove item from cart
+            obj.removeItemFromCart = function (productname) {
+                for (var item in cart) {
+                    if (cart[item].productname === productname) {
+                        cart[item].total--;
+                        if (cart[item].total === 0) {
+                            cart.splice(item, 1);
+                        }
+                        break;
+                    }
+                }
+                saveCart();
+            }
+
+            // Remove all items from cart
+            obj.removeItemFromCartAll = function (productname) {
+                for (var item in cart) {
+                    if (cart[item].productname === productname) {
+                        cart.splice(item, 1);
+                        break;
+                    }
+                }
+                saveCart();
+            }
+
+            // Clear cart
+            obj.clearCart = function () {
+                cart = [];
+                saveCart();
+            }
+
+            // Count cart 
+            obj.totalCount = function () {
+                var totalCount = 0;
+                for (var item in cart) {
+                    totalCount += cart[item].total;
+                }
+                return totalCount;
+            }
+
+            // Total cart
+            obj.totalCart = function () {
+                var totalCart = 0;
+                for (var item in cart) {
+                    totalCart += cart[item].productprice * cart[item].total;
+                }
+                return Number(totalCart.toFixed(2));
+            }
+
+            // List cart
+            obj.listCart = function () {
+                var cartCopy = [];
+                for (i in cart) {
+                    item = cart[i];
+                    itemCopy = {};
+                    for (p in item) {
+                        itemCopy[p] = item[p];
+
+                    }
+                    itemCopy.total = Number(item.productprice * item.total).toFixed(2);
+                    cartCopy.push(itemCopy)
+                }
+                return cartCopy;
+            }
+            return obj;
+        })();
+
+        // Add
+        $(document).on('click', '.addcart', function (event) {
+            event.preventDefault();
+            var productId = $(this).data("product-id");
+
+            var transaction = db.transaction(["AB Shoping"], "readwrite");
+            var objStore = transaction.objectStore("AB Shoping");
+
+            var request = objStore.get(parseInt(productId));
+
+            request.onsuccess = function (event) {
+                var result = request.result;
+                var brand = result.Brand;
+                var productname = result.ProductName;
+                var productprice = Number(result.ProductPrice);
+                var image = result.ProductImage;
+                shoppingCart.addItemToCart(brand, productname, productprice, image, 1);
+                displayCart();
+            }
+            $('#cartTitlebar').click();
+        });
+
+        // Clear items
+        $('.clear-cart').click(function () {
+            shoppingCart.clearCart();
+            displayCart();
+        });
+
+
+        function displayCart() {
+            var cartArray = shoppingCart.listCart();
+            var output = "";
+            for (var i in cartArray) {
+                output +=
+                    `<div id="p1">
+                            <input type="checkbox" class="checkbox" />
+                            <img src="Images/${cartArray[i].imagesrc}" id="cartImage" />
+                            <div class="item-counter">
+                                <button class="btn-minus">-</button>
+                                <input class="input-counter" value="0" type="text" name="" id="" readonly>
+                                    <button class="btn-plus">+</button>
+                            </div>
+                    </div>
+                    <div id="p2">
+                                <span id="productBrand">${cartArray[i].brand}</span>
+                                <br />
+                                <span id="productName">${cartArray[i].productname}</span>
+                                <br />
+                                <span id="productPrice">${cartArray[i].productprice}</span>
+                                <br />
+                                <div class="itemcancel">
+                                    <button class="cancel">Cancel</button>
+                                </div>
+                     </div>`
+                
+            }
+            $('.cart22').html(output);
+            $('.maxtotal').html(shoppingCart.totalCart());
+        }
+
+        // Delete item button
+        $(document).on('click', '.itemcancel .cancel', function () {
+            var productname = $(this).data('productname')
+            shoppingCart.removeItemFromCartAll(productname);
+            displayCart();
+        });
+
+        // -1
+        $(document).on('click', '.item-counter .btn-minus', function () {
+            var productname = $(this).data('productname')
+            shoppingCart.removeItemFromCart(productname);
+            displayCart();
+        });
+
+        // +1
+        $(document).on('click', '.item-counter .btn-plus', function () {
+            var productname = $(this).data('productname')
+            shoppingCart.addItemToCart(productname);
+            displayCart();
+        });
+
+        // Item count input
+        $('.show-cart').on("change", ".item-count", function () {
+            var productname = $(this).data('productname');
+            var total = Number($(this).val());
+            shoppingCart.setCountForItem(productname, total);
+            displayCart();
+        });
+
+        displayCart();
+    </script>
+</body>
+</html>
+
